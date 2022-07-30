@@ -10,6 +10,14 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Str;
 use Nette\Utils\Random;
 
+/**
+ * @property int $id
+ * @property int $app_id
+ * @property int $uid
+ * @property string $language
+ * @property string $os
+ * @property string $token
+ */
 class Device extends Model
 {
     use HasFactory;

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Enum\MessagesEnum;
+use App\Events\Canceled;
+use App\Events\Renewed;
+use App\Events\Started;
 use App\Http\Requests\ProcessPurchaseRequest;
 use App\Http\Resources\PurchaseResource;
 use App\Libraries\Helpers\DeviceHelper;
@@ -33,19 +36,28 @@ class PurchaseController extends Controller
     {
         $data = $request->validated();
         $receipt = $data['receipt'];
-
         $device = DeviceHelper::getDevice();
+        $event = [$device->app_id, $device->uid];
+        $endpoint = $device->app->callback;
 
         $verify = Purchase::verify($device->os, $receipt);
         if (!$verify['status']) {
+            event(new Canceled($endpoint, $event));
             return PurchaseResource::handle(MessagesEnum::PURCHASE_NOT_VERIFY);
         }
-        Purchase::updateOrCreate(['receipt' => $receipt], [
+
+        $purchase = Purchase::updateOrCreate(['receipt' => $receipt], [
             'device_id' => $device->id,
             'receipt' => $receipt,
             'expire_time' => $verify['expire_time'],
             'status' => $verify['status']
         ]);
+
+        if ($purchase['created_at'] == $purchase['updated_at']) {
+            event(new Started($endpoint, $event));
+        } else {
+            event(new Renewed($endpoint, $event));
+        }
         return PurchaseResource::result(Purchase::where('receipt', $receipt)->first());
     }
 

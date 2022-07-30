@@ -9,6 +9,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
 use Nette\Utils\Random;
 
+/**
+ * @property int $id
+ * @property int $device_id
+ * @property string $receipt
+ * @property mixed $expire_time
+ * @property int $status
+ */
 class Purchase extends Model
 {
     use HasFactory;

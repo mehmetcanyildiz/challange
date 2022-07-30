@@ -26,5 +26,10 @@ class MessagesEnum
     const PURCHASE_NOT_FOUND = ['Purchase not Found', 404];
     const PURCHASE_SOMETHING_WENT_WRONG = ['Something went wrong in Purchase Model', 400];
     const PURCHASE_NOT_VERIFY = ['Purchase could not be verified', 400];
-    const PURCHASE_DEVICE_INFO_NOT_FOUND = ['Device information not found', 404];
+    /**
+     * Callback Messages
+     */
+    const CALLBACK_SUCCESS = 'Callback is successful';
+    const CALLBACK_FAILED = 'Callback is failed';
+
 }
