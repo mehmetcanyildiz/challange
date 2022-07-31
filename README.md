@@ -1,64 +1,93 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## Proje Hakkında
+iOS ya da Google mobile application’lar bu API’ı kullanarak 
+satın alma ya da doğrulama yapabilmesi kurgulanmıştır.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Proje geliştirilirken Docker, Laravel, Horizon, Supervisor kullanılmıştır.
 
-## About Laravel
+### Port bilgileri
+`app`   => `http://localhost:8086`\
+`mysql` => `3030`
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Kurulum
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Öncelikle projemizi repomuzdan çekelim.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+`git clone https://github.com/mehmetcanyildiz/teknasyon-c.git`
 
-## Learning Laravel
+Daha sonra docker ımızın konfigürasyonlarını build edelim.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+`docker-compose build`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Build işlemini sorunsuz hallettikten sonra dockerımızı ayaklandırmak için aşağıdaki komutu kullanalım.
 
-## Laravel Sponsors
+`docker-compose up -d`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Docker php cli’ne girerek projemizin ayarlarını ve gerekli kütüphanelerin kurulumu için aşağıdaki komutları sırasıyla yapalım.
+```
+composer update
+cp .env.example .env
+php artisan key:generate
+```
+Veritabanını import etmek için ister aşağıdaki komutu kullanabilir, isterseniz paylaşılan sql’i mysqlimize import edebilirsiniz.
 
-### Premium Partners
+`php artisan migrate --seed`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Evet şimdi her şey hazır test aşamasına geçebiliriz.
 
-## Contributing
+## Test
+Postman için ekte sunduğum json dosyasını import yapalım.
+`ek-postman.json`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Api
+Endpointlerimiz 4 ana başlıkta toplanır.
 
-## Code of Conduct
+* Apps
+* Devices
+* Purchases
+* Reports
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Apps**
 
-## Security Vulnerabilities
+* App oluşturma, güncelleme, silme ve listeleme işlemlerini yapabilirsiniz.
+* Toplu listeleme için sayfalama kullanılmıştır. Sayfa geçişi için `?page=2` parametresini kullanabilirsiniz.
+* App device ve purchase relation barındırmaktadır. Herhangi bir app’in silinmesi durumunda altındaki tüm devicelar ve purchaselar temizlenir.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**Devices**
 
-## License
+* Device oluşturma, güncelleme,silme ve listeleme işlemlerini yapabilirsiniz.
+* Aynı uid ye sahip device 1 uygulamaya sadece 1 kez kayıt olabilir. Eğer kayıtlısa veritabanı kaydı kullanıcıya geri döndürülür.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Purchases**
+
+* Purchase satın alma işlemi, abonelik kontrolü ve listeleme işlemlerini yapabilirsiniz.
+* Satın alma işlemi geliştirilen mock tarafından kontrol edilir. Eğer android ise son değerinin tekil, ios için çoğul olmasına bakılır. 
+* Duruma göre eventlar tetiklenir. `Canceled,Renewed,Started`
+
+Callback kısmında detaylı açıklanmıştır.
+
+**Reports**
+* Uygulamaların sahip olduğu device listesi ve bu cihazların platform ve abonelik durumlarının filtreleme yapılarak tekil yada çoğul olarak raporlandığı kısımdır.
+
+### Callback
+
+Mevcut aboneliğin kontrolü sırasında mock’un cevabına göre 3 adet eventdan ilgili olanı tetikler.
+
+**Types**
+* Canceled
+* Renewed
+* Started
+
+Tetiklenen event ilgili appdeki callback url’ine (type,app_id,uid) datalarını ekleyerek basit bir post işlemi yapar.
+
+### Worker
+
+* Command Schedule da tanımlanmış olan job her dakika(test için) aktif alan tüm purchase datalarını expire_time larına göre tarayarak gerekli ödemelerin doğrulanmasını ve kontrol edilmesi için bir kuyruğa tanımlar.
+* Horizon yardımıyla workerlarının çalışma konfigürasyonlarını değiştirebilir yük dağılımını canlı ya da local sisteminize göre ayarlayabilirsiniz.
+* İsterseniz horizon dashboard da workerların çalışma durumlarını analiz edebilirsiniz.
+
+#### Horizon Yapılandırma Bilgileri
+Horizon’un dosyasını yapılandırmak için `config/horizon.php` dosyasını açmalısınız.
+
+* `minProcesses` ve `maxProcesses` işçinin işleme aldığı iş adetini belirlenir.
+* `balanceMaxShift` ve `balanceCooldown` iş parçacıklarını ölçeklendirme için kullanılır.
+* `tries` iş parçacığında hata oluşması durumunda kaç defa tekrar denenmesi gerektiğini belirtir.

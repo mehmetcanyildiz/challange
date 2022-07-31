@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
  * @property string $callback
  * @property Device $device
  */
-class AppResource extends BasicResource
+class ReportResource extends BasicResource
 {
 
     /**
@@ -27,6 +27,12 @@ class AppResource extends BasicResource
             "id" => $this->id,
             "name" => $this->name,
             "callback" => $this->callback,
+            "devices" => [
+                'ios' => $this->device->where('os', 'ios')->count(),
+                'android' => $this->device->where('os', 'android')->count(),
+                'total' => $this->device->count()
+            ],
+            "subscription" => SubscriptionResource::collection($this->device)
         ];
     }
 }

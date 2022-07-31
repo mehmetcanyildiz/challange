@@ -68,7 +68,7 @@ class PurchaseController extends Controller
     public function check(): JsonResponse
     {
         $device = DeviceHelper::getDevice();
-        $purchase = $device->purchase()->first();
+        $purchase = $device->subscription;
         if (empty($purchase)) {
             return PurchaseResource::handle(MessagesEnum::PURCHASE_NOT_FOUND);
         }

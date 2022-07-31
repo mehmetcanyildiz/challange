@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Filters\AppFilter;
 use App\Http\Requests\AppsFilterRequest;
-use App\Http\Resources\AppResource;
+use App\Http\Resources\ReportResource;
 use App\Models\App;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -23,6 +23,6 @@ class ReportController extends Controller
     {
         $filterable = new AppFilter($request);
         $data = App::with('device')->filter($filterable)->get();
-        return AppResource::collection($data);
+        return ReportResource::collection($data);
     }
 }
