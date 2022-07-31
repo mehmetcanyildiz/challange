@@ -24,7 +24,7 @@ Build işlemini sorunsuz hallettikten sonra dockerımızı ayaklandırmak için 
 
 Projemizin ayarlarını ve gerekli kütüphanelerin kurulumu için aşağıdaki komutları sırasıyla yapalım.
 ```
-composer update
+composer install
 cp .env.example .env
 php artisan key:generate
 ```
@@ -32,14 +32,14 @@ Veritabanını import etmek için ister aşağıdaki komutu kullanabilir, isters
 
 `php artisan migrate --seed`
 
-[database.sql](https://github.com/mehmetcanyildiz/teknasyon-c/blob/main/database.sql)
+[database.sql](https://raw.githubusercontent.com/mehmetcanyildiz/teknasyon-c/main/database.sql)
 
 Evet şimdi her şey hazır test aşamasına geçebiliriz.
 
 ## Test
 Postman için ekte sunduğum json dosyasını import yapalım.
 
-[postman_collection.json](https://github.com/mehmetcanyildiz/teknasyon-c/blob/main/postman_collection.json)
+[postman_collection.json](https://raw.githubusercontent.com/mehmetcanyildiz/teknasyon-c/main/postman_collection.json)
 
 ### Api
 Endpointlerimiz 4 ana başlıkta toplanır.
