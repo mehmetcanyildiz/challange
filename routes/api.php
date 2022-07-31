@@ -3,6 +3,7 @@
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,5 +54,9 @@ Route::middleware('api')->group(function () {
             Route::get('/show/{id}', [PurchaseController::class, 'show']);
             Route::get('/list', [PurchaseController::class, 'list']);
         });
+        /**
+         * Reports
+         */
+        Route::post('/reports', [ReportController::class, 'reports']);
     });
 });

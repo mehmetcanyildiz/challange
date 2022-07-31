@@ -46,14 +46,14 @@ class PurchaseController extends Controller
             return PurchaseResource::handle(MessagesEnum::PURCHASE_NOT_VERIFY);
         }
 
-        $purchase = Purchase::updateOrCreate(['receipt' => $receipt], [
+        Purchase::updateOrCreate(['receipt' => $receipt], [
             'device_id' => $device->id,
             'receipt' => $receipt,
             'expire_time' => $verify['expire_time'],
             'status' => $verify['status']
         ]);
-
-        if ($purchase['created_at'] == $purchase['updated_at']) {
+        $purchase = Purchase::where('receipt', $receipt)->first();
+        if ($purchase->created_at == $purchase->updated_at) {
             event(new Started($endpoint, $event));
         } else {
             event(new Renewed($endpoint, $event));

@@ -23,6 +23,11 @@ class MessagesEnum
      * Purchase Messages
      */
     const PURCHASE_SUCCESS_DELETE = 'Device successful deleted';
+    const PURCHASE_RATE_LIMIT = 'Rate limit conditions';
+    const PURCHASE_ADDED_JOB = '%s purchase job added.';
+    const PURCHASE_SUB_STARTED = 'Subscription started';
+    const PURCHASE_SUB_RENEWED = 'Subscription renewed';
+    const PURCHASE_SUB_CANCELED = 'Subscription canceled';
     const PURCHASE_NOT_FOUND = ['Purchase not Found', 404];
     const PURCHASE_SOMETHING_WENT_WRONG = ['Something went wrong in Purchase Model', 400];
     const PURCHASE_NOT_VERIFY = ['Purchase could not be verified', 400];

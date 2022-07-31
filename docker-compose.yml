@@ -19,9 +19,12 @@ services:
       - ./:/var/www
     links:
       - database
+      - redis
     environment:
       - 'MYSQL_PORT=3306'
       - 'MYSQL_HOST=database'
+      - 'REDIS_PORT=6379'
+      - 'REDIS_HOST=redis'
   database:
     platform: linux/x86_64
     image: mysql:5.7
@@ -31,4 +34,7 @@ services:
     environment:
       - 'MYSQL_ROOT_PASSWORD=123123'
       - 'MYSQL_DATABASE=tech'
-
+  redis:
+    image: 'bitnami/redis:latest'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes

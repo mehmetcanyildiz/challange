@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use App\Jobs\CallbackJob;
+use App\Jobs\Callback;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
@@ -20,7 +20,7 @@ class Canceled
      */
     public function __construct($endpoint, $event)
     {
-        CallbackJob::dispatch($endpoint, $event, self::TYPE);
+        Callback::dispatch($endpoint, $event, self::TYPE);
     }
 
 }

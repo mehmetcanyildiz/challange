@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,6 +9,7 @@ use Illuminate\Support\Str;
 use Nette\Utils\Random;
 
 /**
+ * Purchase Model
  * @property int $id
  * @property int $device_id
  * @property string $receipt
@@ -55,20 +55,6 @@ class Purchase extends Model
     public static function receipt(): string
     {
         return Str::random(18) . Random::generate('2', '0-9');
-    }
-
-    /**
-     * Get Subscription
-     * @param $token
-     * @return Model|Builder|null
-     */
-    public static function getSubscription($token): Model|Builder|null
-    {
-        return self::with('device')
-            ->whereRelation('device', 'id', $token)
-            ->whereDate('expire_time', '>', date('Y-m-d H:i:s'))
-            ->orderBy('expire_time', 'DESC')
-            ->first();
     }
 
     /**

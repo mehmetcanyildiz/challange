@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enum\PurchaseStatusEnum;
 use App\Models\Device;
 use App\Models\Purchase;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -28,6 +29,10 @@ class PurchaseFactory extends Factory
             'device_id' => fake()->randomElement(Device::pluck('id')),
             'receipt' => Purchase::receipt(),
             'expire_time' => fake()->dateTimeBetween('now', '+10 month'),
+            'status' => fake()->randomElement([
+                PurchaseStatusEnum::PURCHASE_STATUS_PASSIVE,
+                PurchaseStatusEnum::PURCHASE_STATUS_ACTIVE
+            ])
         ];
     }
 }

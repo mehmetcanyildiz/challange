@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Nette\Utils\Random;
 
 /**
+ * Device Model
  * @property int $id
  * @property int $app_id
  * @property int $uid
@@ -76,6 +77,11 @@ class Device extends Model
     public static function uid(): string
     {
         return Random::generate(10, '0-9');
+    }
+
+    public function subscription(): HasOne
+    {
+        return $this->hasOne(Purchase::class)->orderBy('expire_time', 'DESC')->latest();
     }
 
 }
