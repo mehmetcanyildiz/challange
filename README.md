@@ -36,7 +36,8 @@ Evet şimdi her şey hazır test aşamasına geçebiliriz.
 
 ## Test
 Postman için ekte sunduğum json dosyasını import yapalım.
-`ek-postman.json`
+
+[postman_collection.json](https://github.com/mehmetcanyildiz/teknasyon-c/blob/main/postman_collection.json)
 
 ### Api
 Endpointlerimiz 4 ana başlıkta toplanır.
