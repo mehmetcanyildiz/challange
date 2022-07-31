@@ -1,567 +1,520 @@
 {
-	"id": "9d0614ef-2089-6b85-288e-549a36469b00",
-	"name": "Teknasyon-c",
-	"description": "",
-	"order": [],
-	"folders": [
+	"info": {
+		"_postman_id": "7d7c6da4-a4f4-43bb-a894-732f996999a6",
+		"name": "Teknasyon-c",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
 			"name": "Apps",
-			"description": "",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"order": [
-				"050a5481-cb21-e495-2867-96ce0bae2c3d",
-				"b0d28bfa-73dc-db8a-85f2-3ea7985b4b38",
-				"a4786c97-daba-d3b8-fcbe-50a7790e6495",
-				"08f492b9-09e4-e9a2-7940-b90e61c43fa6",
-				"4ae4b334-a08f-febc-ea0d-ded588f8e91a"
-			],
-			"owner": 0,
-			"folders_order": [],
-			"id": "aa60367c-6c7a-ed5c-4a1b-3cc9eb34f3cb"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test app",
+									"type": "text"
+								},
+								{
+									"key": "callback",
+									"value": "http://app.test/api/callback",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/v1/app/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"app",
+								"create"
+							]
+						},
+						"description": "App list"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "test2",
+									"type": "text"
+								},
+								{
+									"key": "callback",
+									"value": "http://test.local/callback",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/v1/app/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"app",
+								"update",
+								"1"
+							]
+						},
+						"description": "Update App"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/v1/app/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"app",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/v1/app/show/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"app",
+								"show",
+								"1"
+							]
+						},
+						"description": "App show"
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/v1/app/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"app",
+								"list"
+							]
+						},
+						"description": "App List"
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Devices",
-			"description": "",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"order": [
-				"34178e6e-021f-5931-56cc-b364644e5b61",
-				"d32d401a-be21-bc6c-6706-cdc0408c7891",
-				"dad9ee54-617b-87c8-a921-e72afab392e5",
-				"cf52956b-3961-df88-92d3-9eacd769057f",
-				"cc5a69e4-a1b9-d9e9-c95b-1b55f390dc0e"
-			],
-			"owner": 0,
-			"folders_order": [],
-			"id": "3162a56b-6b79-f1b2-6bfd-e3e9187a465f"
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "app_id",
+									"value": "97",
+									"type": "text"
+								},
+								{
+									"key": "uid",
+									"value": "7558459114",
+									"type": "text"
+								},
+								{
+									"key": "os",
+									"value": "ios",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "tr",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/v1/device/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"device",
+								"create"
+							]
+						},
+						"description": "App list"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "app_id",
+									"value": "97",
+									"type": "text"
+								},
+								{
+									"key": "uid",
+									"value": "7558459116",
+									"type": "text"
+								},
+								{
+									"key": "os",
+									"value": "ios",
+									"type": "text"
+								},
+								{
+									"key": "language",
+									"value": "tr",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/v1/device/update/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"device",
+								"update",
+								"3"
+							]
+						},
+						"description": "Update App"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/v1/device/delete/774",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"device",
+								"delete",
+								"774"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/v1/device/show/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"device",
+								"show",
+								"1"
+							]
+						},
+						"description": "App show"
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/v1/device/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"device",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Purchases",
-			"description": "",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"order": [
-				"1ed04915-74a5-33f5-63af-7d51f35ddd17",
-				"529e54a5-3d51-4aa2-dade-41a778c38b1a",
-				"b50beda2-eabf-da7f-4cb0-5385f236fb36",
-				"5252fe1f-888a-0f67-7df5-8402d48f4141"
-			],
-			"owner": 0,
-			"folders_order": [],
-			"id": "787df293-07db-23d4-17ec-9b0f790f99b6"
+			"item": [
+				{
+					"name": "Check Subscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "client-token",
+									"value": "6957adfbdc7a2c25ab366967820f0cb89792dbf155f19c48e22191988fb445c4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/v1/purchase/check-subscription",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"purchase",
+								"check-subscription"
+							]
+						},
+						"description": "App show"
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/v1/purchase/show/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"purchase",
+								"show",
+								"3"
+							]
+						},
+						"description": "App show"
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/v1/purchase/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"purchase",
+								"list"
+							]
+						},
+						"description": "App List"
+					},
+					"response": []
+				},
+				{
+					"name": "Purchase Process",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "client-token",
+									"value": "c8d4b8ad0886c3543e4138683fbe37ffc63e841a0a756560446b608cb8cc0a5d",
+									"type": "text"
+								},
+								{
+									"key": "receipt",
+									"value": "e2J7frug2HHM1zyLKM64",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/v1/purchase/process",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"purchase",
+								"process"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Reports",
-			"description": "",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"order": [
-				"6321c06a-b054-b6be-2001-ecae843b4494"
-			],
-			"owner": 0,
-			"folders_order": [],
-			"id": "731c4a45-a1b7-f491-ed71-3e8be58c5e0f"
-		}
-	],
-	"folders_order": [
-		"aa60367c-6c7a-ed5c-4a1b-3cc9eb34f3cb",
-		"3162a56b-6b79-f1b2-6bfd-e3e9187a465f",
-		"787df293-07db-23d4-17ec-9b0f790f99b6",
-		"731c4a45-a1b7-f491-ed71-3e8be58c5e0f"
-	],
-	"timestamp": 1659179773963,
-	"owner": 0,
-	"public": false,
-	"requests": [
-		{
-			"id": "050a5481-cb21-e495-2867-96ce0bae2c3d",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8086/api/v1/app/create",
-			"folder": "aa60367c-6c7a-ed5c-4a1b-3cc9eb34f3cb",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
+			"item": [
 				{
-					"key": "name",
-					"value": "test app",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "callback",
-					"value": "http://app.test/api/callback",
-					"description": "",
-					"type": "text",
-					"enabled": true
+					"name": "Report",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Reilly Group",
+									"type": "text"
+								},
+								{
+									"key": "callback",
+									"value": "http://terry.com/qui-laboriosam-eaque-et-sed-rerum-omnis",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8086/api/v1/reports",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"v1",
+								"reports"
+							]
+						},
+						"description": "App List"
+					},
+					"response": []
 				}
-			],
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659188876298,
-			"name": "Create",
-			"description": "App list",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": []
-		},
-		{
-			"id": "08f492b9-09e4-e9a2-7940-b90e61c43fa6",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8086/api/v1/app/show/1",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"data": null,
-			"dataMode": "params",
-			"name": "Show",
-			"description": "App show",
-			"descriptionFormat": "html",
-			"time": 1659192616986,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folderId": "aa60367c-6c7a-ed5c-4a1b-3cc9eb34f3cb",
-			"folder": "aa60367c-6c7a-ed5c-4a1b-3cc9eb34f3cb"
-		},
-		{
-			"id": "1ed04915-74a5-33f5-63af-7d51f35ddd17",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8086/api/v1/purchase/check-subscription",
-			"folder": "787df293-07db-23d4-17ec-9b0f790f99b6",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "client-token",
-					"value": "6957adfbdc7a2c25ab366967820f0cb89792dbf155f19c48e22191988fb445c4",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659276858202,
-			"name": "Check Subscription",
-			"description": "App show",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": []
-		},
-		{
-			"id": "34178e6e-021f-5931-56cc-b364644e5b61",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8086/api/v1/device/create",
-			"folder": "3162a56b-6b79-f1b2-6bfd-e3e9187a465f",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "app_id",
-					"value": "97",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "uid",
-					"value": "7558459114",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "os",
-					"value": "ios",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "language",
-					"value": "tr",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659204279579,
-			"name": "Create",
-			"description": "App list",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": []
-		},
-		{
-			"id": "4ae4b334-a08f-febc-ea0d-ded588f8e91a",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8086/api/v1/app/list",
-			"folder": "aa60367c-6c7a-ed5c-4a1b-3cc9eb34f3cb",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659189348291,
-			"name": "List",
-			"description": "App List",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": [],
-			"isFromCollection": true,
-			"collectionRequestId": "4ae4b334-a08f-febc-ea0d-ded588f8e91a"
-		},
-		{
-			"id": "5252fe1f-888a-0f67-7df5-8402d48f4141",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8086/api/v1/purchase/process",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "client-token",
-					"value": "c8d4b8ad0886c3543e4138683fbe37ffc63e841a0a756560446b608cb8cc0a5d",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "receipt",
-					"value": "e2J7frug2HHM1zyLKM64",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659276868331,
-			"name": "Purchase Process",
-			"description": "",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": []
-		},
-		{
-			"id": "529e54a5-3d51-4aa2-dade-41a778c38b1a",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8086/api/v1/purchase/show/3",
-			"folder": "787df293-07db-23d4-17ec-9b0f790f99b6",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659207639262,
-			"name": "Show",
-			"description": "App show",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": []
-		},
-		{
-			"id": "6321c06a-b054-b6be-2001-ecae843b4494",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8086/api/v1/reports",
-			"folder": "731c4a45-a1b7-f491-ed71-3e8be58c5e0f",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "name",
-					"value": "Reilly Group",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "callback",
-					"value": "http://terry.com/qui-laboriosam-eaque-et-sed-rerum-omnis",
-					"description": "",
-					"type": "text",
-					"enabled": false
-				}
-			],
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659276993029,
-			"name": "Report",
-			"description": "App List",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": []
-		},
-		{
-			"id": "a4786c97-daba-d3b8-fcbe-50a7790e6495",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8086/api/v1/app/delete/1",
-			"queryParams": [],
-			"pathVariables": {},
-			"pathVariableData": [],
-			"preRequestScript": null,
-			"method": "POST",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"data": null,
-			"dataMode": "params",
-			"name": "Delete",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1659200949569,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "aa60367c-6c7a-ed5c-4a1b-3cc9eb34f3cb"
-		},
-		{
-			"id": "b0d28bfa-73dc-db8a-85f2-3ea7985b4b38",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8086/api/v1/app/update/1",
-			"folder": "aa60367c-6c7a-ed5c-4a1b-3cc9eb34f3cb",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PUT",
-			"data": [
-				{
-					"key": "name",
-					"value": "test2",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "callback",
-					"value": "http://test.local/callback",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659196991360,
-			"name": "Update",
-			"description": "Update App",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": []
-		},
-		{
-			"id": "b50beda2-eabf-da7f-4cb0-5385f236fb36",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8086/api/v1/purchase/list",
-			"folder": "787df293-07db-23d4-17ec-9b0f790f99b6",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659207418533,
-			"name": "List",
-			"description": "App List",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": []
-		},
-		{
-			"id": "cc5a69e4-a1b9-d9e9-c95b-1b55f390dc0e",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8086/api/v1/device/list",
-			"folder": "3162a56b-6b79-f1b2-6bfd-e3e9187a465f",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659201267494,
-			"name": "List",
-			"description": "",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": []
-		},
-		{
-			"id": "cf52956b-3961-df88-92d3-9eacd769057f",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8086/api/v1/device/show/1",
-			"folder": "3162a56b-6b79-f1b2-6bfd-e3e9187a465f",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "GET",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659201255893,
-			"name": "Show",
-			"description": "App show",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": []
-		},
-		{
-			"id": "d32d401a-be21-bc6c-6706-cdc0408c7891",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
-			"headerData": [
-				{
-					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "http://localhost:8086/api/v1/device/update/3",
-			"folder": "3162a56b-6b79-f1b2-6bfd-e3e9187a465f",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "PUT",
-			"data": [
-				{
-					"key": "app_id",
-					"value": "97",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "uid",
-					"value": "7558459116",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "os",
-					"value": "ios",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "language",
-					"value": "tr",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659205101110,
-			"name": "Update",
-			"description": "Update App",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": []
-		},
-		{
-			"id": "dad9ee54-617b-87c8-a921-e72afab392e5",
-			"headers": "",
-			"headerData": [],
-			"url": "http://localhost:8086/api/v1/device/delete/774",
-			"folder": "3162a56b-6b79-f1b2-6bfd-e3e9187a465f",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": null,
-			"dataMode": "params",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1659201388453,
-			"name": "Delete",
-			"description": "",
-			"collectionId": "9d0614ef-2089-6b85-288e-549a36469b00",
-			"responses": []
+			]
 		}
 	]
 }
