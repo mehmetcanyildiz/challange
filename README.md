@@ -12,7 +12,7 @@ Proje geliştirilirken Docker, Laravel, Horizon, Supervisor kullanılmıştır.
 
 Öncelikle projemizi repomuzdan çekelim.
 
-`git clone https://github.com/mehmetcanyildiz/teknasyon-c.git`
+`git clone https://github.com/mehmetcanyildiz/challange.git`
 
 Daha sonra docker ımızın konfigürasyonlarını build edelim.
 
@@ -32,14 +32,14 @@ Veritabanını import etmek için ister aşağıdaki komutu kullanabilir, isters
 
 `php artisan migrate --seed`
 
-[database.sql](https://raw.githubusercontent.com/mehmetcanyildiz/teknasyon-c/main/database.sql)
+[database.sql](https://raw.githubusercontent.com/mehmetcanyildiz/challange/main/database.sql)
 
 Evet şimdi her şey hazır test aşamasına geçebiliriz.
 
 ## Test
 Postman için ekte sunduğum json dosyasını import yapalım.
 
-[postman_collection.json](https://raw.githubusercontent.com/mehmetcanyildiz/teknasyon-c/main/postman_collection.json)
+[postman_collection.json](https://raw.githubusercontent.com/mehmetcanyildiz/challange/main/postman_collection.json)
 
 ### Api
 Endpointlerimiz 4 ana başlıkta toplanır.
