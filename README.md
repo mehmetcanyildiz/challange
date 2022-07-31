@@ -32,6 +32,8 @@ Veritabanını import etmek için ister aşağıdaki komutu kullanabilir, isters
 
 `php artisan migrate --seed`
 
+[database.sql](https://github.com/mehmetcanyildiz/teknasyon-c/blob/main/database.sql)
+
 Evet şimdi her şey hazır test aşamasına geçebiliriz.
 
 ## Test
