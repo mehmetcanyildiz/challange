@@ -22,7 +22,7 @@ Build işlemini sorunsuz hallettikten sonra dockerımızı ayaklandırmak için 
 
 `docker-compose up -d`
 
-Docker php cli’ne girerek projemizin ayarlarını ve gerekli kütüphanelerin kurulumu için aşağıdaki komutları sırasıyla yapalım.
+Projemizin ayarlarını ve gerekli kütüphanelerin kurulumu için aşağıdaki komutları sırasıyla yapalım.
 ```
 composer update
 cp .env.example .env
