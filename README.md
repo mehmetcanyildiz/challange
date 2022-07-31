@@ -14,6 +14,13 @@ Proje geliştirilirken Docker, Laravel, Horizon, Supervisor kullanılmıştır.
 
 `git clone https://github.com/mehmetcanyildiz/challange.git`
 
+Projemizin ayarlarını ve gerekli kütüphanelerin kurulumu için aşağıdaki komutları sırasıyla yapalım.
+```
+composer install
+cp .env.example .env
+php artisan key:generate
+```
+
 Daha sonra docker ımızın konfigürasyonlarını build edelim.
 
 `docker-compose build`
@@ -22,12 +29,6 @@ Build işlemini sorunsuz hallettikten sonra dockerımızı ayaklandırmak için 
 
 `docker-compose up -d`
 
-Projemizin ayarlarını ve gerekli kütüphanelerin kurulumu için aşağıdaki komutları sırasıyla yapalım.
-```
-composer install
-cp .env.example .env
-php artisan key:generate
-```
 Veritabanını import etmek için ister aşağıdaki komutu kullanabilir, isterseniz paylaşılan sql’i mysqlimize import edebilirsiniz.
 
 `php artisan migrate --seed`
